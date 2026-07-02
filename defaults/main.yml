@@ -1,0 +1,23 @@
+---
+haproxy_global_maxconn: 4000
+haproxy_defaults_mode: tcp
+haproxy_defaults_timeout_connect: 5000
+haproxy_defaults_timeout_client: 50000
+haproxy_defaults_timeout_server: 50000
+
+# Generic TCP sample rules demonstrating different listen vs backend ports
+haproxy_tcp_frontends:
+  - name: my_tcp_frontend
+    bind: "*:80"  # HAProxy listens on port 80
+    default_backend: my_tcp_backend
+
+haproxy_tcp_backends:
+  - name: my_tcp_backend
+    balance: roundrobin
+    servers:
+      - name: server1
+        address: "192.168.1.101:8080" # Forwards to backend on port 8080
+        check: true
+      - name: server2
+        address: "192.168.1.102:8080" # Forwards to backend on port 8080
+        check: true

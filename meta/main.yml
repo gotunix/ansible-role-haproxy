@@ -1,0 +1,17 @@
+---
+galaxy_info:
+  author: Gemini CLI
+  description: HAProxy role for RHEL with TCP support
+  company: none
+  license: MIT
+  min_ansible_version: "2.10"
+  namespace: gotunix
+  role_name: haproxy
+  platforms:
+    - name: EL
+      versions:
+        - all
+  galaxy_tags:
+    - networking
+    - web
+dependencies: []
